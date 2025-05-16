@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="left">
+            <div id="title1">WELCOME BACK</div>
+            <div id="title2">Welcome back! Please enter your details.</div>
+
+            <div id="form-area">
+                <form class="form-wrapper" id="loginForm" novalidate>
+                    <div class="input-group">
+                        <p id="email-title">Email</p>
+                        <input class="input-box" type="email" id="email" minlength="8" required
+                            placeholder="Enter your email" />
+                    </div>
+                     
+                    <div class="input-group">
+                        <p id="password-title">Password</p>
+                        <input class="input-box" type="password" id="password" minlength="8" required
+                            placeholder="**********" />
+                    </div>
+
+                    <div class="actions">
+                        <label class="checkbox">
+                            <input type="checkbox" id="remember" />
+                            <span>Remember Me</span>
+                        </label>
+                        <a href="#" id="forgot">Forgot Password?</a>
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn" type="button" id="sign-in-one">Sign in</button><br>
+                        <button class="btn" type="button" id="sign-in-two">
+                            <img src="image/icon.png" alt="" id="icon">
+                            <span id="google">Sign in with Google</span>
+                        </button>
+                    </div>
+                    <p id="sign-up">
+                        <span id="normal">Don’t have an account? </span>
+                        <span><a href="" id="free">Sign up fo free!</a></span>
+                    </p>
+            </div>
+                    <p id="errorMessage"></p>
+        </div>
+        <div id="right">
+            <img src="image/wallpaper.png" alt="">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
