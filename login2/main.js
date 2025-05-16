@@ -1,42 +1,27 @@
-document.getElementById("sign-in-one").addEventListener("click", function () {
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-    let errorMessage = document.getElementById("errorMessage");
+document.getElementById("sign-in-one").onclick = () => {
+    const emailEl = document.getElementById("email");
+    const passEl = document.getElementById("password");
+    const error = document.getElementById("errorMessage");
+    const email = emailEl.value.trim();
+    const pass = passEl.value.trim();
 
-    errorMessage.textContent = "";
+    error.textContent = "";
 
-    if (!email && !password) {
-        errorMessage.textContent = "Tất cả các trường không được để trống!";
-        return;
-    }
-    if (!email) {
-        errorMessage.textContent = "Trống email!";
-        return;
-    }
-    if (!password) {
-        errorMessage.textContent = "Trống password!";
+    if (!email || !pass) {
+        error.textContent = !email && !pass ? "Tất cả các trường không được để trống!" :
+            !email ? "Trống email!" : "Trống password!";
         return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        errorMessage.textContent = "Địa chỉ email không hợp lệ!";
-        return;
-    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+        return error.textContent = "Địa chỉ email không hợp lệ!";
 
-    if (password.length < 8) {
-        errorMessage.textContent = "Mật khẩu phải có ít nhất 8 ký tự!";
-        return;
-    }
+    if (pass.length < 8)
+        return error.textContent = "Mật khẩu phải có ít nhất 8 ký tự!";
 
-    const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/g;
-    if (specialCharRegex.test(password)) {
-        errorMessage.textContent = "Mật khẩu không được chứa ký tự đặc biệt!";
-        return;
-    }
+    if (/[!@#$%^&*(),.?":{}|<>]/.test(pass))
+        return error.textContent = "Mật khẩu không được chứa ký tự đặc biệt!";
 
     alert("Đăng nhập thành công!");
-
-    document.getElementById("email").value = "";
-    document.getElementById("password").value = "";
-});
+    emailEl.value = passEl.value = "";
+};
